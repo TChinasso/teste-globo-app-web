@@ -1,7 +1,9 @@
 import axios, { AxiosError, type AxiosInstance } from 'axios';
 import Cookies from 'js-cookie'
+import { useRouter } from 'vue-router';
+export const API_RUL = window.location.host == 'localhost' ? 'http://localhost:3001/api' : 'https://teste-globo-api.vercel.app/api'
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:3001/api',
+  baseURL: API_RUL,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
@@ -27,7 +29,8 @@ axiosInstance.interceptors.response.use(
   },
   (error: AxiosError) => {
     if (error.status == 401 || error.status == 403) {
-      window.location.href = 'http://localhost:3002/login'
+      const router = useRouter()
+      router.push('/login')
     }
     return Promise.reject(error);
   }
