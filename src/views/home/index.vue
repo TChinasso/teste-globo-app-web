@@ -13,7 +13,7 @@
   >
     <v-list-item
       prepend-avatar="https://avatar.iran.liara.run/public/boy"
-      :title="authStore.user.name"
+      :title="authStore.user?.name"
       nav
     >
       <template v-slot:append>
