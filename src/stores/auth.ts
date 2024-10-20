@@ -50,6 +50,7 @@ export const useAuthStore = defineStore('auth', () => {
 
   const logOut = () => {
     Cookies.remove('JWT_TOKEN')
+    user.value = null
     router.push('/login')
   }
   return { user, signIn, signUp, validateEmail, logOut }

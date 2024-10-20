@@ -9,6 +9,11 @@ const router = createRouter({
       redirect: { name: 'dashboard' },
       name: 'home',
       component: () => import('../views/home/index.vue'),
+      beforeEnter: (to, from, next) => {
+        const hasUser = checkUser()
+        if (!hasUser) next('/login')
+        next()
+      },
       children: [
         {
           path: 'dashboard',
@@ -43,6 +48,13 @@ const checkCredentials = (options: { allowed: string[] }) => {
     return true
   }
   return false
+}
+
+const checkUser = () => {
+  const authStore = useAuthStore()
+  const user = authStore.user
+  if (!user) return false
+  return true
 }
 
 export default router

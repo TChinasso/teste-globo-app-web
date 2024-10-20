@@ -38,6 +38,7 @@
       ></v-text-field>
       <v-btn
         :loading="loadingLoggin"
+        :disabled="!loginForm.email.length || !loginForm.password.length"
         rounded
         color="primary"
         class="w-full"

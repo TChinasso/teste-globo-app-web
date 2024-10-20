@@ -37,6 +37,7 @@
         title="Login"
         link
         to="/login"
+        @click.prevent="logOut"
       ></v-list-item>
       <v-list-item
         prepend-icon="mdi-view-dashboard"
@@ -60,13 +61,22 @@
 </template>
 <script setup lang="ts">
 import logoGlobo from '@/assets/logo.png'
+import { vuetify } from '@/plugins/vuetify'
 import { useAuthStore } from '@/stores/auth'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const authStore = useAuthStore()
+const { logOut } = authStore
 const rail = ref(false)
 const drawer = ref(true)
 
+const setDrawerOffIfMobile = () => {
+  const isMobile = vuetify.display.width.value <= 600
+  if (isMobile) drawer.value = false
+}
+onMounted(() => {
+  setDrawerOffIfMobile()
+})
 const checkCredentials = (options: { allowed: string[] }) => {
   const user = authStore.user
   if (options.allowed.includes(user?.access_level)) {
