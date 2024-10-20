@@ -1,8 +1,12 @@
 <template>
-  <v-app-bar>
+  <v-app-bar class="px-1">
     <v-btn v-if="$vuetify.display.width <= 600" @click="drawer = !drawer" icon
       ><v-icon>mdi-menu</v-icon></v-btn
     >
+    <div class="flex items-center">
+      <v-img class="w-12" :src="logoGlobo"> </v-img>
+      <span class="text-xl font-bold">Teste globo</span>
+    </div>
   </v-app-bar>
   <v-navigation-drawer
     v-model="drawer"
@@ -55,10 +59,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import { vuetify } from '@/plugins/vuetify'
+import logoGlobo from '@/assets/logo.png'
 import { useAuthStore } from '@/stores/auth'
 import { ref } from 'vue'
-import { RouterLink } from 'vue-router'
+
 const authStore = useAuthStore()
 const rail = ref(false)
 const drawer = ref(true)

@@ -6,6 +6,9 @@
       :mobile="$vuetify.display.width <= 600"
       :items="users"
       :headers="headers"
+      :disable-sort="true"
+      height="70dvh"
+      items-per-page-text="Itens por página"
     >
       <template v-slot:item.access_level="{ item }">
         <div class="">
@@ -20,19 +23,17 @@
             rounded
             color="blue"
             prepend-icon="mdi-pencil-circle"
-            variant="outlined"
             class="capitalize"
             @click="openDialogUserCrud(item)"
-            >Alterar</v-btn
+            ><span class="normal-case">Alterar</span></v-btn
           >
           <v-btn
             rounded
-            class="capitalize"
+            class="normal-case"
             color="red"
             prepend-icon="mdi-close-circle"
-            variant="outlined"
             @click="removeUser(item)"
-            >Remover</v-btn
+            ><span class="normal-case">Remover</span></v-btn
           >
         </div>
       </template>
