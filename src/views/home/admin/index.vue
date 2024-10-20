@@ -78,7 +78,7 @@ onBeforeMount(async () => {
   loadingUsers.value = false
 })
 
-const headers = ref([
+const headers = ref<any[]>([
   { title: 'Id', key: 'id' },
   { title: 'Nome', key: 'name' },
   { title: 'Email', key: 'email' },
