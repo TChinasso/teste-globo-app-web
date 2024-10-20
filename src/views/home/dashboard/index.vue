@@ -42,7 +42,6 @@ Chart.register(...registerables)
 import { LineChart } from 'vue-chart-3'
 import { useChartStore } from '@/stores/charts'
 import { onBeforeMount, onMounted, ref } from 'vue'
-import { authService } from '@/services/auth.service'
 import { storeToRefs } from 'pinia'
 import dayjs from 'dayjs'
 
@@ -54,14 +53,18 @@ const memoryInfoValues = ref<any>([])
 const loadingCharts = ref(false)
 onBeforeMount(async () => {
   loadingCharts.value = true
-  await chartStore.getCharts()
-  charts.value.cpuInfo.cpuUtilizationSeries.forEach((serie: any) => {
-    cpuInfoData.value.push(dayjs(serie.timestamp).format('HH:mm:ss'))
-    cpuInfoValues.value.push(serie.cpuUtilization)
-  })
-  charts.value.memoryInfo.memoryUtilizationSeries.forEach((serie: any) => {
-    memoryInfoValues.value.push(serie.memoryUtilization)
-  })
+  try {
+    await chartStore.getCharts()
+    charts.value.cpuInfo.cpuUtilizationSeries.forEach((serie: any) => {
+      cpuInfoData.value.push(dayjs(serie.timestamp).format('HH:mm:ss'))
+      cpuInfoValues.value.push(serie.cpuUtilization)
+    })
+    charts.value.memoryInfo.memoryUtilizationSeries.forEach((serie: any) => {
+      memoryInfoValues.value.push(serie.memoryUtilization)
+    })
+  } catch (error) {
+    console.error(error)
+  }
   loadingCharts.value = false
 })
 

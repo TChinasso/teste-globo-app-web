@@ -10,7 +10,7 @@ export const useChartStore = defineStore('chart', () => {
       charts.value = data
       Promise.resolve()
     } catch (error: any) {
-      Promise.reject(error)
+      throw Error(error)
     }
   }
 

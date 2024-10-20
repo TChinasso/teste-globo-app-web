@@ -4,6 +4,7 @@ import { authService } from '@/services/auth.service'
 import Cookies from 'js-cookie'
 import axiosInstance from '@/plugins/axios'
 import type { User } from '@/services/user.service'
+import router from '@/router'
 
 export const useAuthStore = defineStore('auth', () => {
   const user = Cookies.get('USER') ? ref(JSON.parse(Cookies.get('USER') || '')) : ref<User>()
@@ -46,6 +47,11 @@ export const useAuthStore = defineStore('auth', () => {
       throw error
     }
   }
-  return { user, signIn, signUp, validateEmail }
+
+  const logOut = () => {
+    Cookies.remove('JWT_TOKEN')
+    router.push('/login')
+  }
+  return { user, signIn, signUp, validateEmail, logOut }
 
 })

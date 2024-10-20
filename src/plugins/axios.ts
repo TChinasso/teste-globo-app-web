@@ -1,3 +1,4 @@
+import { useAuthStore } from '@/stores/auth';
 import axios, { AxiosError, type AxiosInstance } from 'axios';
 import Cookies from 'js-cookie'
 import { useRouter } from 'vue-router';
@@ -29,8 +30,8 @@ axiosInstance.interceptors.response.use(
   },
   (error: AxiosError) => {
     if (error.status == 401 || error.status == 403) {
-      const router = useRouter()
-      router.push('/login')
+      const authStore = useAuthStore()
+      authStore.logOut()
     }
     return Promise.reject(error);
   }
