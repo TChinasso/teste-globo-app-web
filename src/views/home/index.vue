@@ -65,7 +65,7 @@ const drawer = ref(true)
 
 const checkCredentials = (options: { allowed: string[] }) => {
   const user = authStore.user
-  if (options.allowed.includes(user.access_level)) {
+  if (options.allowed.includes(user?.access_level)) {
     return true
   }
   return false

@@ -10,7 +10,7 @@
       <template v-slot:item.access_level="{ item }">
         <div class="">
           <span class="capitalize">{{
-            translateAccessLevel(item.access_level)
+            translateAccessLevel(item?.access_level)
           }}</span>
         </div>
       </template>

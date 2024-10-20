@@ -39,7 +39,7 @@ const router = createRouter({
 const checkCredentials = (options: { allowed: string[] }) => {
   const authStore = useAuthStore()
   const user = authStore.user
-  if (options.allowed.includes(user.access_level)) {
+  if (options.allowed.includes(user?.access_level)) {
     return true
   }
   return false
