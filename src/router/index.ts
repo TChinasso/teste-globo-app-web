@@ -1,5 +1,6 @@
 import { useAuthStore } from '@/stores/auth'
 import { createRouter, createWebHistory } from 'vue-router'
+import Cookies from 'js-cookie'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -35,7 +36,13 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/login/index.vue')
+      component: () => import('../views/login/index.vue'),
+      beforeEnter: (to, from, next) => {
+        const hasUser = checkUser()
+        const hasJwt = Cookies.get('JWT_TOKEN')
+        if (hasJwt && hasUser) next('/')
+        next()
+      }
     }
   ]
 })
