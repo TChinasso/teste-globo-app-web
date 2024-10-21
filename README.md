@@ -4,6 +4,10 @@
 
 https://teste-globo-app-web.vercel.app/
 
+## Link para o respositório globo-teste-api
+
+https://github.com/TChinasso/teste-globo-api
+
 ## Visão Geral
 
 Esta é uma aplicação Vuejs 3com TypeScript. Visando atender todos os requisitos listados no arquivo de requisitos para o teste.
