@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="dialog" width="auto">
     <v-card
-      max-width="95dvw"
+      max-width="85dvw"
       width="400"
       prepend-icon="mdi-badge-account-outline"
       :title="!userForm.id ? 'Criar usuario' : 'Editar usuario'"
