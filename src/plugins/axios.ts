@@ -1,8 +1,8 @@
 import { useAuthStore } from '@/stores/auth';
 import axios, { AxiosError, type AxiosInstance } from 'axios';
 import Cookies from 'js-cookie'
-import { useRouter } from 'vue-router';
-export const API_RUL = window.location.host == 'localhost' ? 'http://localhost:3001/api' : 'https://teste-globo-api.vercel.app/api'
+export const API_RUL = window.location.hostname == 'localhost' ? 'http://localhost:3001/api' : 'https://teste-globo-api.vercel.app/api'
+
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: API_RUL,
   timeout: 10000,
