@@ -1,25 +1,64 @@
-# teste-globo-app-web
+# TESTE-GLOBO-APP-WEB
 
-This template should help get you started developing with Vue 3 in Vite.
+## Link para a aplicação
 
-## Customize configuration
+https://teste-globo-app-web.vercel.app/
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Visão Geral
 
-## Project Setup
+Esta é uma aplicação Vuejs 3com TypeScript. Visando atender todos os requisitos listados no arquivo de requisitos para o teste.
 
-```sh
+## Funcionalidades
+
+- **Vue.js 3**: Framework JavaScript progressivo para construção de interfaces de usuário.
+- **Vite**: Ferramenta de construção moderna e rápida para desenvolvimento.
+- **Vuetify**: Uma biblioteca de UI Vue com componentes Material Design.
+- **Axios**: Cliente HTTP baseado em Promises para realizar requisições de API.
+- **TypeScript**: Garante tipagem forte e uma melhor experiência de desenvolvimento.
+- **Tailwind CSS**: Um framework CSS utilitário para construção de designs modernos e responsivos.
+
+## Pré-requisitos
+
+Antes de configurar o projeto, certifique-se de ter o seguinte instalado:
+
+- **Node.js** (v18+)
+- **npm**
+
+## Começando
+
+### 1. Clonar o Repositório
+
+```bash
+git clone https://github.com/TChinasso/teste-globo-app-web.git
+cd teste-globo-app-web
+```
+
+### 2. Instalar Dependências
+
+Usando npm:
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 3. Executar o Servidor de Desenvolvimento
 
-```sh
+Inicie o servidor de desenvolvimento usando o Vite:
+
+```bash
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### 4. Rodar utlizando docker
 
-```sh
-npm run build
+Inicie o servidor de desenvolvimento usando o docker:
+
+```bash
+docker-compose up --build
 ```
+
+A aplicação deve estar rodando em `http://localhost:3002`.
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT.
